@@ -250,6 +250,59 @@ int Pokemon_FiltroDeVenenoYXl(void* unPokemon)
 
 	return validacion;
 }
+void Pokemon_MapAtaque(void* unPokemon){
+	char tipo[100];
+	char tamanio[100];
+	int valorDeAtaque;
+	int potenciadorAtaque;
 
+	Pokemon_gettipo(unPokemon, tipo);
+	Pokemon_getValorDeAtaque(unPokemon, &valorDeAtaque);
+	Pokemon_gettamanio(unPokemon, tamanio);
+
+	if((strcmp(tipo,"Fire")==0) || (strcmp(tipo,"Bug")==0) || (strcmp(tipo,"Grass")==0)){
+		if((strcmp(tamanio,"XL")==0)){
+			//printf("entro xl");
+			potenciadorAtaque = valorDeAtaque*20/100;
+			valorDeAtaque= valorDeAtaque+potenciadorAtaque;
+			Pokemon_setValorDeAtaque(unPokemon, valorDeAtaque);
+		}
+		else{
+			if((strcmp(tamanio,"L")==0)){
+				//printf("entro l");
+				potenciadorAtaque = valorDeAtaque*10/100;
+				valorDeAtaque= valorDeAtaque+potenciadorAtaque;
+				Pokemon_setValorDeAtaque(unPokemon, valorDeAtaque);
+			}
+			else{
+				//printf("entro s");
+				potenciadorAtaque = valorDeAtaque*5/100;
+				valorDeAtaque= valorDeAtaque+potenciadorAtaque;
+				Pokemon_setValorDeAtaque(unPokemon, valorDeAtaque);
+			}
+		}
+	}
+
+
+}
+int Pokemon_Batalla(void* unPokemon){
+
+	char tipo[100];
+	char tamanio [100];
+	int valorAtaque;
+	char ataqueCargado[100];
+	int retorno=0;
+
+	Pokemon_gettipo(unPokemon, tipo);
+	Pokemon_gettamanio(unPokemon, tamanio);
+	Pokemon_getValorDeAtaque(unPokemon, &valorAtaque);
+	Pokemon_getataqueCargado(unPokemon, ataqueCargado);
+
+	if(((strcmp(tipo,"Fire")==0 && (strcmp(tamanio,"XL")==0 && (strcmp(ataqueCargado,"Lanzallamas")==0) && (valorAtaque > 80)))) ||((strcmp(tipo,"Water")==0 && (strcmp(tamanio,"L")==0 && (strcmp(ataqueCargado,"Hidrobomba")==0) && (valorAtaque > 80)))) ) {
+		retorno =1;
+	}
+
+	return retorno;
+}
 
 

@@ -5,6 +5,8 @@
  Version     :
  Copyright   : Your copyright notice
  Description : Hello World in C, Ansi-style
+
+
  ============================================================================
  */
 
@@ -21,6 +23,7 @@ int main(void) {
 	LinkedList* listaPokemones=ll_newLinkedList();
 	LinkedList* listaPokemonesAux = ll_newLinkedList();
 	int opcion;
+	int contador=0;
 	do{
 		printf("-------------------------------------------------------------\n");
 		printf("1.Cargar el archivo de pokemones\n");
@@ -28,7 +31,9 @@ int main(void) {
 		printf("3.Imprimir pokemones\n");
 		printf("4.Filtrar tipo de fuego\n");
 		printf("5.Filtrar extra-grandes\n");
-		printf("6.Salir\n");
+		printf("6.Mapear Ataque\n");
+		printf("7.Batalla contra el jefe\n");
+		printf("8.Salir\n");
 		printf("-------------------------------------------------------------\n");
 		printf("ingrese una opcion: ");
 		scanf("%d",&opcion);
@@ -64,8 +69,7 @@ int main(void) {
 		case 4:
 			if(ll_isEmpty(listaPokemones)==0)
 			{
-				listaPokemonesAux = ll_filter(listaPokemones, Pokemon_FiltroDeFuego);
-				Lopez_Pokemon_ListPokemon(listaPokemonesAux);
+				 Lopez_Pokemon_FiltroFuego( listaPokemonesAux, listaPokemones);
 			}
 			else
 			{
@@ -75,8 +79,28 @@ int main(void) {
 		case 5:
 			if(ll_isEmpty(listaPokemones)==0)
 				{
-				listaPokemonesAux = ll_filter(listaPokemones,Pokemon_FiltroDeVenenoYXl );
-					Lopez_Pokemon_ListPokemon(listaPokemonesAux);
+				 Lopez_Pokemon_FiltroVeneno(listaPokemonesAux, listaPokemones);
+				}
+				else
+				{
+					printf("No hay pokemones cargados para mostrar.\n");
+				}
+			break;
+		case 6:
+
+			if(ll_isEmpty(listaPokemones)==0)
+				{
+				 Lopez_Pokemon_MapAtaque( listaPokemones);
+				}
+				else
+				{
+					printf("No hay pokemones cargados para mostrar.\n");
+				}
+			break;
+		case 7:
+			if(ll_isEmpty(listaPokemones)==0)
+				{
+				 Lopez_Pokemon_BatallaJefe(listaPokemones, contador);
 				}
 				else
 				{
@@ -86,5 +110,5 @@ int main(void) {
 
 		}
 
-	}while(opcion!=6);
+	}while(opcion!=8);
 }

@@ -95,52 +95,24 @@ int Lopez_PokemonEdit(LinkedList* pokemonList)
 	}
     return 1;
 }
-LinkedList* ll_map(LinkedList* this, void (*pFunc)(void*))
-{
-	int size;
-
-	LinkedList* list = NULL;
-
-	size = ll_len(this);
-
-	if(this != NULL && pFunc != NULL){
-
-		for(int i=0; i<size; i++){
-
-			pFunc(ll_get(this, i));
-		}
-		list = this;
-	}
-
-	return list;
+void Lopez_Pokemon_FiltroFuego(LinkedList* listaPokemonesAux,LinkedList* listaPokemones){
+	listaPokemonesAux = ll_filter(listaPokemones, Pokemon_FiltroDeFuego);
+	Lopez_Pokemon_ListPokemon(listaPokemonesAux);
 }
-LinkedList* ll_filter(LinkedList* this, int(*pFunc)(void*))
-{
-
-	void* pElement;
-	int len;
-
-	LinkedList* filterList = NULL;
-
-	len = ll_len(this);
-
-	if(this != NULL && pFunc != NULL){
-
-		filterList = ll_newLinkedList();
-
-		if(filterList != NULL){
-
-			for(int i=0; i<len; i++){
-
-				pElement = ll_get(this, i);
-
-				if(pFunc(pElement) == 1){
-
-					ll_add(filterList, pElement);
-				}
-			}
-		}
-	}
-	return filterList;
+void Lopez_Pokemon_FiltroVeneno(LinkedList* listaPokemonesAux,LinkedList* listaPokemones){
+	listaPokemonesAux = ll_filter(listaPokemones,Pokemon_FiltroDeVenenoYXl );
+		Lopez_Pokemon_ListPokemon(listaPokemonesAux);
 }
-
+void Lopez_Pokemon_MapAtaque(LinkedList* listaPokemones){
+	listaPokemones=ll_map(listaPokemones, Pokemon_MapAtaque);
+	Lopez_Pokemon_ListPokemon(listaPokemones);
+}
+void Lopez_Pokemon_BatallaJefe(LinkedList* listaPokemones, int contador){
+	contador=ll_count(listaPokemones, Pokemon_Batalla);
+	if(contador>=3){
+		printf("tienes %d Pokemones para vencer al jefe, Te felicito, ganaste esta batalla\n",contador);
+	}
+	else{
+		printf("tienes %d pokemones, no eres los suficientemente fuerte, lo siento\n",contador);
+	}
+}

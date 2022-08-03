@@ -44,4 +44,6 @@ void Pokemon_ShowAPokemon(ePokemon* unP);
 int BuscarPokemon(LinkedList* listaPokemones,int* idABuscar);
 int Pokemon_FiltroDeFuego(void* unPokemon);
 int Pokemon_FiltroDeVenenoYXl(void* unPokemon);
+void Pokemon_MapAtaque(void* unPokemon);
+int Pokemon_Batalla(void* unPokemon);
 

@@ -75,7 +75,7 @@
 75,Graveler,Rock,XL,Placaje,70,0
 76,Golem,Rock,XL,Placaje,70,0
 77,Ponyta,Fire,XS,Lanzallamas,70,1
-78,Rapidash,Fire,XS,Lanzallamas,70,1
+78,Rapidash,Fire,XL,Lanzallamas,100,0
 79,Slowpoke,Water,L,Hidrobomba,80,0
 80,Slowbro,Water,L,Hidrobomba,80,0
 81,Magnemite,Electric,XL,Impactrueno,70,1
@@ -84,11 +84,11 @@
 84,Doduo,Normal,XL,Placaje,23,0
 85,Dodrio,Normal,XL,Placaje,70,0
 86,Seel,Water,XL,Hidrobomba,70,1
-87,Dewgong,Water,XL,Hidrobomba,70,1
+87,Dewgong,Water,L,Hidrobomba,100,1
 88,Grimer,Poison,XL,Bola Lodo,70,0
 89,Muk,Poison,XL,Bola Lodo,70,1
 90,Shellder,Water,XL,Hidrobomba,70,1
-91,Cloyster,Water,XL,Hidrobomba,70,1
+91,Cloyster,Water,L,Hidrobomba,100,1
 92,Gastly,Ghost,XL,Impresionar,70,1
 93,Haunter,Ghost,XL,Bola Sombra,70,0
 94,Gengar,Ghost,XL,Bola Sombra,70,1
